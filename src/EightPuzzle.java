@@ -18,7 +18,12 @@ public class EightPuzzle {
 		Node path = findPathToGoal(startState, goalState);
 		if (path != null){
 			System.out.println("\n******Solved!");
-			System.out.println("Path length: " + path.getPathCost());
+			path.printPath();
+//			System.out.println("Path length: " + path.getPathCost());
+			
+		}
+		else{
+			System.out.println("\nxxxxxxxxFAILURE");			
 		}
 		
 		
@@ -29,12 +34,12 @@ public class EightPuzzle {
 //		System.out.println(DemoGrids.getStartDemoSize5() + "\n\n");
 //		System.out.println(DemoGrids.getGoalDemoSize5() + "\n\n");
 		
-		System.out.println("\n\n\nSuccessors of start");
-		for (GridState g: startState.listOfPossibleSuccessorStates())
-			System.out.println(g);
-		System.out.println("\n\n\nSuccessors of goal");
-		for (GridState g: goalState.listOfPossibleSuccessorStates())
-			System.out.println(g);
+//		System.out.println("\n\n\nSuccessors of start");
+//		for (GridState g: startState.listOfPossibleSuccessorStates())
+//			System.out.println(g);
+//		System.out.println("\n\n\nSuccessors of goal");
+//		for (GridState g: goalState.listOfPossibleSuccessorStates())
+//			System.out.println(g);
 		
 	}
 	
@@ -42,7 +47,9 @@ public class EightPuzzle {
 	private static Node findPathToGoal(GridState start, GridState goal){
 		
 		
-		return new Node(goal, new Node(goal));
+//		return new Node(goal, new Node(goal));
+		AStarSearch searcher = new AStarSearch(start, goal);
+		return searcher.search();
 	}
 	
 	
@@ -56,6 +63,7 @@ public class EightPuzzle {
 		GridState startState;
 //		startState = UserInputGetter.askForStartState(size);
 		startState = DemoGrids.getStartDemoSize3();
+//		startState = DemoGrids.getStartDemoSize5();
 		
 		return startState;
 	}
@@ -64,6 +72,7 @@ public class EightPuzzle {
 		GridState goalState;
 //		goalState = UserInputGetter.askForGoalState(size);
 		goalState = DemoGrids.getGoalDemoSize3();
+//		goalState = DemoGrids.getGoalDemoSize5();
 		
 		return goalState;
 	}

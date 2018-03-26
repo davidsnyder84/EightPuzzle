@@ -35,4 +35,14 @@ public class Node {
 	public boolean equals(Object other){
 		return state.equals(((Node)other).getState());
 	}
+	
+	
+	public void printPath(){
+		System.out.println("Path cost: " + pathCost);
+		Node pos = this;
+		while (pos != null){
+			System.out.println(pos.getState() + "\n__________");
+			pos = pos.getParent();
+		}
+	}
 }

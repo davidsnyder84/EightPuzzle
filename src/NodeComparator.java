@@ -20,6 +20,7 @@ public class NodeComparator implements Comparator<Node> {
 	//evaluation function f(n) is h(n) + g(n)
 	public int f(Node n){
 		return h(n) + g(n);
+//		return n.getState().manhattanDistanceTo(goalState) + n.getPathCost();
 	}
 	//heuristic function h(n) is manhattan distance to goal state
 	public int h(Node n){

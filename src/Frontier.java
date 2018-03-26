@@ -6,16 +6,18 @@ public class Frontier extends ArrayList<Node>{
 	private static final long serialVersionUID = -440663375692450499L;
 	private static final int FRONT = 0;
 	
+	private GridState goalState;
 	private NodeComparator nodeComparator;
 	
 	
-	public Frontier(GridState goalState){
+	public Frontier(GridState goal){
+		goalState = goal;
 		nodeComparator = new NodeComparator(goalState);
 	}
 	
 	
 	@Override
-	public boolean add(Node n){				
+	public boolean add(Node n){
 		super.add(n);
 		//sort frontier (ordered by evaulation function) after adding a node
 		Collections.sort(this, nodeComparator);
@@ -35,6 +37,15 @@ public class Frontier extends ArrayList<Node>{
 		if (originalNode.getPathCost() > newNode.getPathCost()){
 			remove(originalNode);
 			add(newNode);
+		}
+	}
+	
+	
+	
+	public void printsomething(){
+		System.out.println("kdlkwkllskdlakldklskdlkaskdlkasldklaskdlaksdlkasdl");
+		for (Node n: this){
+			System.out.println(n.getState().manhattanDistanceTo(goalState) + n.getPathCost());
 		}
 	}
 	

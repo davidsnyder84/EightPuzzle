@@ -30,6 +30,20 @@ public class DemoGrids {
 //		g.setSquare(0, 0, 8);
 //		g.setSquare(0, 1, 3);
 //		g.setSquare(0, 2, 1);
+		
+		
+		//samlpe1
+//		g.setSquare(2, 0, 1);
+//		g.setSquare(2, 1, 3);
+//		g.setSquare(2, 2, 4);
+//		                  
+//		g.setSquare(1, 0, 8);
+//		g.setSquare(1, 1, 0);
+//		g.setSquare(1, 2, 5);
+//		                  
+//		g.setSquare(0, 0, 7);
+//		g.setSquare(0, 1, 2);
+//		g.setSquare(0, 2, 6);
 		return g;
 	}
 	
@@ -48,8 +62,39 @@ public class DemoGrids {
 		g.setSquare(0, 1, 7);
 		g.setSquare(0, 2, 8);
 		
+		
+		
+		//sample1
+//		g.setSquare(2, 0, 1);
+//		g.setSquare(2, 1, 2);
+//		g.setSquare(2, 2, 3);
+//		                  
+//		g.setSquare(1, 0, 8);
+//		g.setSquare(1, 1, 0);
+//		g.setSquare(1, 2, 4);
+//		                  
+//		g.setSquare(0, 0, 7);
+//		g.setSquare(0, 1, 6);
+//		g.setSquare(0, 2, 5);
+		
 		return g;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -95,16 +140,16 @@ public class DemoGrids {
 		GridState g = new GridState(5);
 		
 		g.setSquare(4, 0, 1);
-		g.setSquare(4, 1, 0);
-		g.setSquare(4, 2, 2);
-		g.setSquare(4, 3, 3);
-		g.setSquare(4, 4, 4);
+		g.setSquare(4, 1, 2);
+		g.setSquare(4, 2, 3);
+		g.setSquare(4, 3, 4);
+		g.setSquare(4, 4, 9);
 		
 		g.setSquare(3, 0, 5);
 		g.setSquare(3, 1, 6);
 		g.setSquare(3, 2, 7);
 		g.setSquare(3, 3, 8);
-		g.setSquare(3, 4, 9);
+		g.setSquare(3, 4, 0);
 		
 		g.setSquare(2, 0, 10);
 		g.setSquare(2, 1, 11);
