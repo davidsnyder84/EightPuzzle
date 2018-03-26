@@ -11,7 +11,7 @@ public class Node {
 		state = gridstate;
 		parent = parentNode;
 		
-		if (isRoot())
+		if (parent == null)
 			pathCost = 0;
 		else
 			pathCost = parentNode.getPathCost() + STEP_COST;
@@ -21,10 +21,7 @@ public class Node {
 	
 	
 	
-	
-	
 	public Node getParent(){return parent;}
-	public boolean isRoot(){return parent == null;}
 	
 	public int getPathCost(){return pathCost;}
 	public GridState getState(){return state;}

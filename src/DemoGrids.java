@@ -44,6 +44,36 @@ public class DemoGrids {
 //		g.setSquare(0, 0, 7);
 //		g.setSquare(0, 1, 2);
 //		g.setSquare(0, 2, 6);
+		
+		
+
+		//sample3
+		g.setSquare(2, 0, 3);
+		g.setSquare(2, 1, 6);
+		g.setSquare(2, 2, 4);
+		
+		g.setSquare(1, 0, 0);
+		g.setSquare(1, 1, 1);
+		g.setSquare(1, 2, 2);
+		
+		g.setSquare(0, 0, 8);
+		g.setSquare(0, 1, 7);
+		g.setSquare(0, 2, 5);
+		
+		//worst
+		g.setSquare(2, 0, 8);
+		g.setSquare(2, 1, 0);
+		g.setSquare(2, 2, 6);
+		
+		g.setSquare(1, 0, 5);
+		g.setSquare(1, 1, 4);
+		g.setSquare(1, 2, 7);
+		
+		g.setSquare(0, 0, 2);
+		g.setSquare(0, 1, 3);
+		g.setSquare(0, 2, 1);
+		
+		
 		return g;
 	}
 	
@@ -64,7 +94,7 @@ public class DemoGrids {
 		
 		
 		
-		//sample1
+//		//sample1
 //		g.setSquare(2, 0, 1);
 //		g.setSquare(2, 1, 2);
 //		g.setSquare(2, 2, 3);

@@ -7,7 +7,7 @@ public class GridState {
 	public static final int DEFAULT_SIZE = 3;
 	private static final int BLANK_SQUARE = 0;
 	
-	//number of squares in grid = size^2 -1.
+	//number of squares in grid = size^2 - 1.
 	private int size = DEFAULT_SIZE;
 	private int[][] squares;
 	
@@ -28,6 +28,8 @@ public class GridState {
 	
 	
 	
+	
+	//set/get individual square values
 	public void setSquare(int i, int j, int setValue){squares[i][j] = setValue;}
 	public void setSquare(Point p, int setValue){setSquare(p.x, p.y, setValue);}	
 	public int getSquare(int i, int j){return squares[i][j];}
@@ -37,7 +39,7 @@ public class GridState {
 	
 	
 	
-	//returns the manhattan distance from this state to the given state
+	//returns the total manhattan distance from this state to the given state
 	public int manhattanDistanceTo(GridState goal){
 		int totalDistance = 0;
 
@@ -47,7 +49,6 @@ public class GridState {
 			
 			int distanceForCurrentDigit = Math.abs(digitCoordsInThis.y - digitCoordsInGoal.y) + Math.abs(digitCoordsInThis.x - digitCoordsInGoal.x);
 			totalDistance += distanceForCurrentDigit;
-//			System.out.println(currentDigit + ": " + distanceForCurrentDigit);
 		}
 		
 		return totalDistance;
@@ -65,7 +66,7 @@ public class GridState {
 	
 	
 	
-	
+	//list of possibile successor states (child states / states that can be reached by making a single move)
 	public ArrayList<GridState> listOfPossibleSuccessorStates(){
 		ArrayList<GridState> successorStates = new ArrayList<GridState>();
 		
@@ -79,7 +80,7 @@ public class GridState {
 		neighborsOfBlank.add(new Point(positionOfBlank.x, positionOfBlank.y - 1));
 		neighborsOfBlank.add(new Point(positionOfBlank.x, positionOfBlank.y + 1));
 		
-		//generate successor states by swapping the blank square with its neighbors
+		//generate successor states by swapping the blank square with one of its neighbors
 		for (Point coordinatesOfNeighbor: neighborsOfBlank)
 			if (validCoordinate(coordinatesOfNeighbor)){
 				GridState swappedState = new GridState(this);
@@ -89,13 +90,11 @@ public class GridState {
 		
 		return successorStates;
 	}
-	
 	private void swapSquares(Point p1, Point p2){
 		int temp = getSquare(p1);
 		setSquare(p1, getSquare(p2));
 		setSquare(p2, temp);
 	}
-	
 	//returns true if the coordinate exists on the grid (it is within the grid's boundaries)
 	private boolean validCoordinate(Point p){
 		return (p.x >= 0 && p.y >= 0 && p.x < size && p.y < size);
@@ -105,11 +104,7 @@ public class GridState {
 	
 	
 	
-	
-	
-	
-	
-	
+	//two grid states are equal if all of their digit positions are equal
 	@Override
 	public boolean equals(Object o){
 		GridState other = (GridState) o;
@@ -127,7 +122,6 @@ public class GridState {
 				gridstring += String.format("%3d", getSquare(i, j));
 			gridstring += "\n";
 		}
-		
 		return gridstring;
 	}
 }

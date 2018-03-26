@@ -12,6 +12,7 @@ public class Frontier extends ArrayList<Node>{
 	
 	public Frontier(GridState goal){
 		goalState = goal;
+		//comparator used to order nodes by their evaluation function value
 		nodeComparator = new NodeComparator(goalState);
 	}
 	
@@ -21,32 +22,21 @@ public class Frontier extends ArrayList<Node>{
 		super.add(n);
 		//sort frontier (ordered by evaulation function) after adding a node
 		Collections.sort(this, nodeComparator);
-		
 		return true;
 	}
 	
 	
-	public Node pop(){
-		return remove(FRONT);
-	}
+	public Node pop(){return remove(FRONT);}
 	
+	
+	//checks if a state already exists in the frontier, and replaces it if the new node containing that state's path cost is smaller
 	public void replaceNodeIfPathCostIsSmaller(Node newNode){
 		if (!contains(newNode)) return;
+		
 		Node originalNode = get(indexOf(newNode));
-		//replace the existing node with the new node if the new node has a lower path cost
 		if (originalNode.getPathCost() > newNode.getPathCost()){
 			remove(originalNode);
 			add(newNode);
 		}
 	}
-	
-	
-	
-	public void printsomething(){
-		System.out.println("kdlkwkllskdlakldklskdlkaskdlkasldklaskdlaksdlkasdl");
-		for (Node n: this){
-			System.out.println(n.getState().manhattanDistanceTo(goalState) + n.getPathCost());
-		}
-	}
-	
 }

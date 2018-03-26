@@ -12,7 +12,7 @@ public class AStarSearch {
 		goalState = goal;
 	}
 	
-	public Node search(){		
+	public Node findPathToGoal(){		
 		Frontier frontier = new Frontier(goalState);
 		ArrayList<Node> exploredNodes = new ArrayList<Node>();
 		
@@ -28,9 +28,6 @@ public class AStarSearch {
 				return currentNode;
 			
 			exploredNodes.add(currentNode);
-			System.out.println("explored: " + exploredNodes.size());
-			System.out.println("front: " + frontier.size());
-//			if (frontier.size() == 1400 || frontier.size() == 2800 || frontier.size() == 3600 || frontier.size() == 4500) frontier.printsomething();
 			
 			//add the current node's children (successor states) to the frontier
 			for (GridState successorState: currentNode.getState().listOfPossibleSuccessorStates()){
@@ -42,9 +39,7 @@ public class AStarSearch {
 			}
 		}
 		
+		//return failure if the frontier is empty (no goal found)
 		return FAILURE;
 	}
-	
-	
-	
 }
