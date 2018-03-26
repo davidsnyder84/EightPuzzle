@@ -1,3 +1,4 @@
+//David Snyder a247a342 cs771 prog1
 
 public class Node {
 	//step cost always costs 1 (one tile is swapped with the blank spot)
@@ -34,12 +35,14 @@ public class Node {
 	}
 	
 	
-	public void printPath(){
-		System.out.println("Path cost: " + pathCost);
+	public String getPathAsString(){
+		String pathString = "";
+		pathString += "Path cost: " + pathCost + "\n";
 		Node pos = this;
 		while (pos != null){
-			System.out.println(pos.getState() + "\n__________");
+			pathString += pos.getState() + "______________\n";
 			pos = pos.getParent();
 		}
+		return pathString;
 	}
 }

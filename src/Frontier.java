@@ -1,3 +1,5 @@
+//David Snyder a247a342 cs771 prog1
+
 import java.util.ArrayList;
 import java.util.Collections;
 

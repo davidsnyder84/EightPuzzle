@@ -1,20 +1,26 @@
-import java.util.ArrayList;
+//David Snyder a247a342 cs771 prog1
 
+import java.util.ArrayList;
 
 public class AStarSearch {
 	public static final Node FAILURE = null;
 	
 	private GridState startState;
 	private GridState goalState;
+	private Frontier frontier;
+	private ArrayList<Node> exploredNodes;
 	
 	public AStarSearch(GridState start, GridState goal) {
 		startState = start;
 		goalState = goal;
+		frontier = new Frontier(goalState);
+		exploredNodes = new ArrayList<Node>();
 	}
 	
+	//A* search
 	public Node findPathToGoal(){		
-		Frontier frontier = new Frontier(goalState);
-		ArrayList<Node> exploredNodes = new ArrayList<Node>();
+		frontier = new Frontier(goalState);
+		exploredNodes = new ArrayList<Node>();
 		
 		//frontier only holds the starting node at first
 		Node startNode = new Node(startState);
@@ -42,4 +48,7 @@ public class AStarSearch {
 		//return failure if the frontier is empty (no goal found)
 		return FAILURE;
 	}
+	
+	public int numberOfNodesRemainingInFrontier(){return frontier.size();}
+	public int numberOfNodesExplored(){return exploredNodes.size();}
 }

@@ -1,6 +1,8 @@
+//David Snyder a247a342 cs771 prog1
+
 import java.util.Comparator;
 
-
+//used to order nodes within the frontier based on their evaluation function value
 public class NodeComparator implements Comparator<Node> {
 	
 	private GridState goalState;

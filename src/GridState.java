@@ -1,7 +1,7 @@
+//David Snyder a247a342 cs771 prog1
+
 import java.awt.Point;
 import java.util.ArrayList;
-
-
 
 public class GridState {
 	public static final int DEFAULT_SIZE = 3;
@@ -53,7 +53,6 @@ public class GridState {
 		
 		return totalDistance;
 	}
-	
 	
 	//returns the coordinate position of the given digit ("Where is 4? It is in position (x,y)")
 	public Point coordinatesOfDigit(int digit){
