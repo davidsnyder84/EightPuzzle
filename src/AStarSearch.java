@@ -2,24 +2,44 @@ import java.util.ArrayList;
 
 
 public class AStarSearch {
-
-	public AStarSearch() {
+	public static final Node FAILURE = null;
+	
+	private GridState startState;
+	private GridState goalState;
+	
+	public AStarSearch(GridState start, GridState goal) {
+		startState = start;
+		goalState = goal;
 	}
 	
-	public void search(Frontier frontier, ArrayList<Node> exploredNodes){
+	public Node search(Frontier frontier, ArrayList<Node> exploredNodes){
 		
+		//frontier only holds the starting node at first
+		Node startNode = new Node(startState);
+		frontier.add(startNode);
 		
+		while(!frontier.isEmpty()){
+			Node currentNode = frontier.pop();
+			
+			//GOAL TEST, return current node (the goal) if found
+			if (currentNode.getState().equals(goalState))
+				return currentNode;
+			
+			exploredNodes.add(currentNode);
+			
+			//add the current node's children (successor states) to the frontier
+			for (GridState successorState: currentNode.getState().listOfPossibleSuccessorStates()){
+				Node child = new Node(successorState, currentNode);
+				if (!frontier.contains(child) && !exploredNodes.contains(child))
+					frontier.add(child);
+				else
+					frontier.replaceNodeIfPathCostIsSmaller(child);
+			}
+		}
 		
+		return FAILURE;
 	}
 	
 	
-	public int f(Node n){
-		return h(n) + g(n);
-	}
-	public int h(Node n){
-		return 0;////////////
-	}
-	public int g(Node n){
-		return n.getPathCost();
-	}
+	
 }

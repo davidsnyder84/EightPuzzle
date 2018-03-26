@@ -1,8 +1,4 @@
 import java.util.Comparator;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
 
 
 public class NodeComparator implements Comparator<Node> {
@@ -13,18 +9,23 @@ public class NodeComparator implements Comparator<Node> {
 		goalState = goal;
 	}
 	
+	
+	//compares two nodes based on the evaluation function 
 	@Override
 	public int compare(Node arg0, Node arg1) {
 		return f(arg0) - f(arg1);
 	}
 	
 	
+	//evaluation function f(n) is h(n) + g(n)
 	public int f(Node n){
 		return h(n) + g(n);
 	}
+	//heuristic function h(n) is manhattan distance to goal state
 	public int h(Node n){
-		return 0;////////////
+		return n.getState().manhattanDistanceTo(goalState);
 	}
+	//cost function g(n) is path cost
 	public int g(Node n){
 		return n.getPathCost();
 	}
